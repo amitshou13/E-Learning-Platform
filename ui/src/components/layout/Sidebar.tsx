@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Settings, HelpCircle } from "lucide-react";
 
 const Sidebar = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -58,23 +57,26 @@ const Sidebar = () => {
 
     return (
         <aside
-            className={`min-h-screen p-4 bg-surface text-gray-900 dark:text-white dark:bg-darkSurface transition-all duration-300 ${collapsed ? "w-20" : "w-64"
-                }`}
+            className={`min-h-screen p-4 pt-5 bg-surface text-gray-900 dark:text-white dark:bg-darkSurface transition-all duration-300 relative ${collapsed ? "w-20" : "w-64"}`}
         >
+            {/* Collapse Arrow Top-Right Outside  */}
+            <button
+                onClick={() => setCollapsed(!collapsed)}
+                className='absolute -right-3 top-6 z-10 bg-white dark:bg-gray-800 border border-secondary rounded-full p-1 shadow-md'
+            >
+                <svg className={`w-3 h-3 transition-transform duration-300 fill-secondary ${collapsed ? "" : "rotate-180"}`} fill="none" viewBox="0 0 8 14">
+                    <path d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                </svg>
+            </button>
+
             {/* Company Logo and Name  */}
-            <div className='flex justify-between items-center'>
+            <div className='flex items-center space-x-3'>
                 <a href="/" className="flex items-center space-x-3">
                     <img src="/logo.svg" alt="KT" className="h-10 w-10" />
                     {!collapsed && (
                         <span className="text-2xl font-bold text-primary dark:text-secondary">KT</span>
                     )}
                 </a>
-                <button
-                    onClick={() => setCollapsed(!collapsed)}
-                    className='p-1 ml-auto text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-secondary'
-                >
-                    {collapsed ? "➡" : "⬅"}
-                </button>
             </div>
 
             {/* Side Bar Links  */}
