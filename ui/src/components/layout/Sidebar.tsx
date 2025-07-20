@@ -62,9 +62,9 @@ const Sidebar = () => {
             {/* Collapse Arrow Top-Right Outside  */}
             <button
                 onClick={() => setCollapsed(!collapsed)}
-                className='absolute -right-3 top-6 z-10 bg-white dark:bg-gray-800 border border-secondary rounded-full p-1 shadow-md'
+                className='absolute -right-3 top-6 z-10 bg-white dark:bg-gray-800 dark:border-secondary border border-primary rounded-full p-1 shadow-md'
             >
-                <svg className={`w-3 h-3 transition-transform duration-300 fill-secondary ${collapsed ? "" : "rotate-180"}`} fill="none" viewBox="0 0 8 14">
+                <svg className={`w-3 h-3 transition-transform duration-300 fill-primary dark:fill-secondary ${collapsed ? "" : "rotate-180"}`} fill="none" viewBox="0 0 8 14">
                     <path d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
                 </svg>
             </button>
