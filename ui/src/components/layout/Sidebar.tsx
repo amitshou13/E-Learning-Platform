@@ -88,7 +88,7 @@ const Sidebar = () => {
                             key={link.href}
                             href={link.href}
                             className={`flex items-center p-2 rounded-lg group transition-colors duration-200 
-                                ${isActive ? "bg-gray-200 dark:bg-gray-700 text-primary dark:text-secondary" : "hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary"}`}
+                                ${isActive ? "bg-gray-300 dark:bg-gray-700 text-primary dark:text-secondary" : "hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-secondary"}`}
                         >
                             <span>
                                 {link.icon}
