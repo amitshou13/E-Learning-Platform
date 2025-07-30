@@ -1,9 +1,26 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const Sidebar = () => {
+interface SidebarProps {
+    onCollapse?: (collapsed: boolean) => void;
+}
+
+const Sidebar = ({ onCollapse }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const location = useLocation();
+
+    const handleCollapse = () => {
+        const newCollapsed = !collapsed;
+        setCollapsed(newCollapsed);
+        onCollapse?.(newCollapsed);
+    };
+
+    const sidebarClasses = `
+        w-64 h-screen bg-gray-50 dark:bg-darkCard 
+        border-r dark:border-gray-700
+        flex flex-col
+        overflow-y-auto
+    `;
 
     const navLinks = [
         {
@@ -61,7 +78,7 @@ const Sidebar = () => {
         >
             {/* Collapse Arrow Top-Right Outside  */}
             <button
-                onClick={() => setCollapsed(!collapsed)}
+                onClick={handleCollapse}
                 className='absolute -right-3 top-6 z-10 bg-white dark:bg-gray-800 dark:border-secondary border border-primary rounded-full p-1 shadow-md'
             >
                 <svg className={`w-3 h-3 transition-transform duration-300 fill-primary dark:fill-secondary ${collapsed ? "" : "rotate-180"}`} fill="none" viewBox="0 0 8 14">

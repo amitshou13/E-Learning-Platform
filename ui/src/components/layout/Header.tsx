@@ -13,14 +13,6 @@ const Header = () => {
     setIsDark(darkMode);
   }, []);
 
-  useEffect(() => {
-    const darkMode =
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    setIsDark(darkMode);
-  }, []);
-
   return (
     <header className="bg-white dark:bg-darkSurface text-black dark:text-white px-6 py-3 shadow border-b">
       <div className="flex justify-between items-center">
